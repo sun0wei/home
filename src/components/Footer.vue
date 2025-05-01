@@ -3,13 +3,15 @@
     <Transition name="fade" mode="out-in">
       <div v-if="!store.playerState || !store.playerLrcShow" class="power">
         <span>
-          Copyright&nbsp;&copy;
+          Copyleft&nbsp;&copy;
           <span v-if="siteStartDate?.length >= 4" class="site-start">
             {{ siteStartDate.substring(0, 4) }}
             -
           </span>
           {{ fullYear }}
           <a :href="siteUrl">{{ siteAnthor }}</a>
+          <a href="https://icp.gov.moe/?keyword=20251970" target="_blank">萌ICP备20251970号</a>
+
         </span>
         <!-- 以下信息请不要修改哦 -->
         <span class="hidden">

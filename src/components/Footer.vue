@@ -19,7 +19,7 @@
           </a>
         </span>
         <!-- 站点备案 -->
-        <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
+        <a href="https://icp.gov.moe/?keyword=20251970" target="_blank">萌ICP备20251970号</a>
           &amp;
           {{ siteIcp }}
         </a>

@@ -12,7 +12,7 @@
   {
     "icon": "CompactDisc",
     "name": "音乐",
-    "link": ""
+    "link": "https://blog.sunwei.online/life/music/"
   },
   {
     "icon": "Compass",
@@ -22,12 +22,7 @@
   {
     "icon": "Book",
     "name": "网址集",
-    "link": "https://tool.sunwei.online/"
-  },
-  {
-    "icon": "Fire",
-    "name": "今日热榜",
-    "link": ""
+    "link": "https://blog.sunwei.online/link/"
   },
   {
     "icon": "LaptopCode",

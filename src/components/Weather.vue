@@ -19,7 +19,6 @@
 
 <script setup>
 import { getAdcode, getWeather, getOtherWeather } from "@/api";
-import { Error } from "@icon-park/vue-next";
 
 // 高德开发者 Key
 const mainKey = import.meta.env.VITE_WEATHER_KEY;
@@ -27,16 +26,24 @@ const mainKey = import.meta.env.VITE_WEATHER_KEY;
 // 天气数据
 const weatherData = reactive({
   adCode: {
-    city: null, // 城市
+    city: "广州", // 城市
     adcode: null, // 城市编码
   },
   weather: {
-    weather: null, // 天气现象
-    temperature: null, // 实时气温
-    winddirection: null, // 风向描述
-    windpower: null, // 风力级别
+    weather: "晴", // 天气现象
+    temperature: "25", // 实时气温
+    winddirection: "东南", // 风向描述
+    windpower: "2", // 风力级别
   },
 });
+
+const defaultWeather = {
+  city: "广州",
+  weather: "晴",
+  temperature: "25",
+  winddirection: "东南",
+  windpower: "2",
+};
 
 // 获取天气数据
 const getWeatherData = async () => {
@@ -48,14 +55,14 @@ const getWeatherData = async () => {
       console.log(result);
       const data = result.result;
       weatherData.adCode = {
-        city: data.city.city_name || "未知地区",
+        city: data?.city?.city_name || defaultWeather.city,
         // adcode: data.city.cityId,
       };
       weatherData.weather = {
-        weather: data.condition.condition,
-        temperature: data.condition.temp,
-        winddirection: data.condition.windDir,
-        windpower: data.condition.windLevel,
+        weather: data?.condition?.condition || defaultWeather.weather,
+        temperature: data?.condition?.temp || defaultWeather.temperature,
+        winddirection: data?.condition?.windDir || defaultWeather.winddirection,
+        windpower: data?.condition?.windLevel || defaultWeather.windpower,
       };
     } else {
       // 获取 Adcode
@@ -79,20 +86,10 @@ const getWeatherData = async () => {
     }
   } catch (error) {
     console.error("天气信息获取失败:" + error);
-    onError("天气信息获取失败");
+    // 保留默认天气，避免接口异常时破坏页面布局
+    weatherData.adCode.city = defaultWeather.city;
+    weatherData.weather = { ...defaultWeather };
   }
-};
-
-// 报错信息
-const onError = (message) => {
-  ElMessage({
-    message,
-    icon: h(Error, {
-      theme: "filled",
-      fill: "#efefef",
-    }),
-  });
-  console.error(message);
 };
 
 onMounted(() => {

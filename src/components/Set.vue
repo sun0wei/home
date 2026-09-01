@@ -1,16 +1,6 @@
 <template>
   <div class="setting">
     <el-collapse class="collapse" v-model="activeName" accordion>
-      <el-collapse-item title="个性壁纸" name="1">
-        <div class="bg-set">
-          <el-radio-group v-model="coverType" text-color="#ffffff" @change="radioChange">
-            <el-radio label="0" size="large" border>默认壁纸</el-radio>
-            <el-radio label="1" size="large" border>每日一图</el-radio>
-            <el-radio label="2" size="large" border>随机风景</el-radio>
-            <el-radio label="3" size="large" border>随机动漫</el-radio>
-          </el-radio-group>
-        </div>
-      </el-collapse-item>
       <el-collapse-item title="个性化调整" name="2">
         <div class="item">
           <span class="text">建站日期显示</span>
@@ -60,26 +50,16 @@
 </template>
 
 <script setup>
-import { CheckSmall, CloseSmall, SuccessPicture } from "@icon-park/vue-next";
+import { CheckSmall, CloseSmall } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import { storeToRefs } from "pinia";
 
 const store = mainStore();
-const { coverType, siteStartShow, musicClick, playerLrcShow, footerBlur } = storeToRefs(store);
+const { siteStartShow, musicClick, playerLrcShow, footerBlur } = storeToRefs(store);
 
 // 默认选中项
 const activeName = ref("1");
 
-// 壁纸切换
-const radioChange = () => {
-  ElMessage({
-    message: "壁纸设置成功，刷新后生效",
-    icon: h(SuccessPicture, {
-      theme: "filled",
-      fill: "#efefef",
-    }),
-  });
-};
 </script>
 
 <style lang="scss" scoped>

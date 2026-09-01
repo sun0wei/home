@@ -10,16 +10,6 @@
         @click="store.boxOpenState = false"
       />
     </transition>
-    <transition name="el-fade-in-linear">
-      <setting-two
-        class="setting"
-        theme="filled"
-        size="28"
-        fill="#ffffff60"
-        v-show="closeShow"
-        @click="store.setOpenState = true"
-      />
-    </transition>
     <div class="content">
       <TimeCapsule />
     </div>
@@ -27,7 +17,7 @@
 </template>
 
 <script setup>
-import { CloseOne, SettingTwo } from "@icon-park/vue-next";
+import { CloseOne } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import TimeCapsule from "@/components/TimeCapsule.vue";
 
@@ -47,8 +37,7 @@ const closeShow = ref(false);
     transform: scale(1);
   }
 
-  .close,
-  .setting {
+  .close {
     position: absolute;
     top: 14px;
     right: 14px;
@@ -65,10 +54,6 @@ const closeShow = ref(false);
     &:active {
       transform: scale(1);
     }
-  }
-
-  .setting {
-    right: 56px;
   }
 
   .content {

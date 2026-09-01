@@ -32,21 +32,25 @@ const bgUrl = ref(null);
 const imgTimeout = ref(null);
 const emit = defineEmits(["loadComplete"]);
 
-// 壁纸随机数
-// 请依据文件夹内的图片个数修改 Math.random() 后面的第一个数字
-const bgRandom = Math.floor(Math.random() * 10 + 1);
+// 本地壁纸列表
+const backgroundUrls = [
+  "/images/background1.jpg",
+  "/images/background2.jpg",
+  "/images/background3.jpg",
+  "/images/background4.jpg",
+  "/images/background5.jpg",
+  "/images/background6.jpg",
+  "/images/background7.jpg",
+  "/images/background8.jpg",
+  "/images/background9.jpg",
+  "/images/background10.jpg",
+];
 
-// 更换壁纸链接
-const changeBg = (type) => {
-  if (type == 0) {
-    bgUrl.value = `/images/background${bgRandom}.jpg`;
-  } else if (type == 1) {
-    bgUrl.value = "https://api.dujin.org/bing/1920.php";
-  } else if (type == 2) {
-    bgUrl.value = "https://api.aixiaowai.cn/gqapi/gqapi.php";
-  } else if (type == 3) {
-    bgUrl.value = "https://api.aixiaowai.cn/api/api.php";
-  }
+const bgRandom = Math.floor(Math.random() * backgroundUrls.length);
+
+// 随机使用本地壁纸
+const changeBg = () => {
+  bgUrl.value = backgroundUrls[bgRandom];
 };
 
 // 图片加载完成
@@ -76,12 +80,12 @@ const imgLoadError = () => {
       fill: "#efefef",
     }),
   });
-  bgUrl.value = `/images/background${bgRandom}.jpg`;
+  bgUrl.value = backgroundUrls[0];
 };
 
 onMounted(() => {
   // 加载壁纸
-  changeBg(store.coverType);
+  changeBg();
 });
 
 onBeforeUnmount(() => {
@@ -110,6 +114,7 @@ onBeforeUnmount(() => {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     backface-visibility: hidden;
     filter: blur(20px) brightness(0.3);
     transition:

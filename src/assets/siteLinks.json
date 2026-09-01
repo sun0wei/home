@@ -1,31 +1,31 @@
 [
   {
-    "icon": "Blog",
+    "icon": "Wordpress",
     "name": "博客",
     "link": "https://blog.sunwei.online/"
   },
   {
-    "icon": "Cloud",
-    "name": "网盘",
-    "link": ""
+    "icon": "UserCog",
+    "name": "博客后台",
+    "link": "https://qexo.sunwei.online/"
   },
   {
-    "icon": "CompactDisc",
+    "icon": "Link",
+    "name": "网址",
+    "link": "https://blog.sunwei.online/link/"
+  },
+  {
+    "icon": "Music",
     "name": "音乐",
     "link": "https://blog.sunwei.online/life/music/"
   },
   {
-    "icon": "Compass",
-    "name": "起始页",
-    "link": "https://nav.imsyy.top/"
+    "icon": "Database",
+    "name": "阿里OSS",
+    "link": "https://oss.console.aliyun.com/bucket/oss-cn-guangzhou/blogsunweionline/object"
   },
   {
-    "icon": "Book",
-    "name": "网址集",
-    "link": "https://blog.sunwei.online/link/"
-  },
-  {
-    "icon": "LaptopCode",
+    "icon": "Server",
     "name": "站点监测",
     "link": "https://status.sunwei.online/"
   }

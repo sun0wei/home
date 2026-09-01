@@ -164,11 +164,11 @@ p {
 @keyframes fade-blur-in {
   from {
     filter: blur(20px) brightness(0.3);
-    transform: scale(1.6);
+    transform: scale(1.1);
   }
   to {
-    filter: blur(0) brightness(1);
-    transform: scale(1.2);
+    filter: blur(2px) brightness(0.8);
+    transform: scale(1.04);
   }
 }
 

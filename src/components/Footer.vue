@@ -22,9 +22,8 @@
         </span>
         <!-- 站点备案 -->
         <a href="https://icp.gov.moe/?keyword=20251970" target="_blank">萌ICP备20251970号</a>
-          &amp;
-          {{ siteIcp }}
-        </a>
+        &amp;
+        {{ siteIcp }}
       </div>
       <div v-else class="lrc">
         <Transition name="fade" mode="out-in">
